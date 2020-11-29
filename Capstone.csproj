@@ -67,6 +67,35 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClosingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClosingScreen.Designer.cs">
+      <DependentUpon>ClosingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GMHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GMHelp.Designer.cs">
+      <DependentUpon>GMHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GMReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GMReport.Designer.cs">
+      <DependentUpon>GMReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GMDataview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GMDataview.Designer.cs">
+      <DependentUpon>GMDataview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TermProjectDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TermProjectDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,8 +110,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClosingScreen.resx">
+      <DependentUpon>ClosingScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GMDataview.resx">
+      <DependentUpon>GMDataview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GMHelp.resx">
+      <DependentUpon>GMHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GMReport.resx">
+      <DependentUpon>GMReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
@@ -99,6 +140,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Data\The Game Master Admin Tool documentation.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,6 +152,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TermProjectDataSet.xsc">
+      <DependentUpon>TermProjectDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TermProjectDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TermProjectDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TermProjectDataSet.xss">
+      <DependentUpon>TermProjectDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

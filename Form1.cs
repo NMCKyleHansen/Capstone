@@ -29,6 +29,10 @@ namespace Capstone
     {
         private Welcome welcomeScreen;
         private Logon logonScreen;
+        private GMDataview dataView;
+        private GMReport dataReport;
+        private ClosingScreen closingScreen;
+        private GMHelp helpScreen;
         bool isAdmin = false;
         string userName;
         string passWord;
@@ -37,7 +41,10 @@ namespace Capstone
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool AllocConsole();
-       
+
+    
+
+
 
         public Form1()
         {
@@ -156,6 +163,103 @@ namespace Capstone
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Create a new GMDataview form
+            dataView = new GMDataview();
+            // Make sure to set the background color to the color of the main form(form1)
+            dataView.BackColor = this.BackColor;
+            dataView.Show();
+            dataView.TopMost = true;
+           
+       
+            /*
+            string connectionString = "Data Source=.;Initial Catalog=TermProject;Integrated Security=True";
+            //string sql = "SELECT Account_ID ,UserName,Password,IS_GM,Last_login,IP ,Email ,Ban ,Account_Address ,city ,STATE_CODE,Zip_Code from account left join ZipCode on ZipCode.Zip_ID = account.Zip_ID "; 
+            string sql = "SELECT * from account";
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(sql, connection);
+            DataSet ds = new DataSet(); 
+            connection.Open();
+            dataadapter.Fill(ds, "Game_Accounts");
+            connection.Close();
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Game_Accounts";
+            */
+
+           /* DataTable sTable;
+            sTable = SqlDataAdapter.Tables["Game_Accounts"]; */
+
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+        }
+
+       
+        // Call the Items for sale report
+        //
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            // Create a new GMReport form and pass it the select statement for the ItemsForSale view
+            dataReport = new GMReport("Select * from ItemsForSale");
+            // Make sure to set the background color to the color of the main form(form1)
+            dataReport.BackColor = this.BackColor;
+            dataReport.Text = "Items for Sale";
+            dataReport.Show();
+            dataReport.TopMost = true;
+        }
+
+
+        // Call the Species report
+        //
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Create a new GMReport form and pass it the select statement from the Species table
+            dataReport = new GMReport("SELECT Species,Strength,Intelligence,Constitution,Dexterity,Wisdom FROM Species");
+            // Make sure to set the background color to the color of the main form(form1)
+            dataReport.BackColor = this.BackColor;
+            dataReport.Text = "Species and Stats";
+            dataReport.Show();
+            dataReport.TopMost = true;
+        }
+
+        // Call the Character Roles report
+        //
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // Create a new GMReport form and pass it the select statement from the Species table
+            dataReport = new GMReport("SELECT * from class");
+            // Make sure to set the background color to the color of the main form(form1)
+            dataReport.BackColor = this.BackColor;
+            dataReport.Text = "Character Role";
+            dataReport.Show();
+            dataReport.TopMost = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            closingScreen = new ClosingScreen();
+            // Make sure to set the background color to the color of the main form(form1)
+            closingScreen.BackColor = this.BackColor;
+            closingScreen.Show();
+            closingScreen.TopMost = true;
+            
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+            helpScreen = new GMHelp();
+            // Make sure to set the background color to the color of the main form(form1)
+            helpScreen.BackColor = this.BackColor;
+            helpScreen.Show();
+            helpScreen.TopMost = true;
+        }
+    }
+    
 
 }

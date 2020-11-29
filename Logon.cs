@@ -14,7 +14,7 @@ namespace Capstone
     public partial class Logon : Form
     {
 
-        
+        private GMHelp helpScreen;
         public Logon()
         {
             InitializeComponent();
@@ -24,7 +24,13 @@ namespace Capstone
         {
 
         }
-
+        //
+        // Once this button is clicked, we will attempt to connect to the database with 1 of 4 possible results:
+        // 1.) Successful logon of a user with administrator rights. We will then enable the main form and hide the logon form.
+        // 2.) Successful logon of a user without administrator rights. We will then keep the main form inactive and tell the user they are not an admin.
+        // 3.) Unsuccessful login.  We will then keep the main form inactive and tell the user that We did not recognize the user/password combination
+        // 4.) Database connection failure.We will then keep the main form inactive and tell the user we encountered an issue talking to the database.
+        // 
         private void button1_Click(object sender, EventArgs e)
         {
             string userName = textBox1.Text;
@@ -37,6 +43,7 @@ namespace Capstone
             {
                 label3.Text = "Welcome Admin";
                 this.Owner.Enabled = true;
+                this.Hide();
             }
             else if (logonTuple.isUser == true && logonTuple.isAdmin == false)
             {
@@ -118,6 +125,15 @@ namespace Capstone
         {
             
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            helpScreen = new GMHelp();
+            // Make sure to set the background color to the color of the main form(form1)
+            helpScreen.BackColor = this.BackColor;
+            helpScreen.Show();
+            helpScreen.TopMost = true;
         }
     }
 }
